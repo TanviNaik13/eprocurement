@@ -1,0 +1,103 @@
+  
+  .slick-prev, .slick-next {
+    width: 60px !important; /* Increased width changes position of image*/
+    height: 60px !important; /* Increased height */
+    background-color: rgb(0, 0, 0); /* Semi-transparent background */
+    
+  }
+  
+  .slick-prev {
+    left: -60px !important; /* Adjust to position arrow outside the left edge */
+  }
+  
+  .slick-next {
+    right: -90px !important; /* Adjust to position arrow outside the right edge */
+  }
+
+
+
+  
+  .ant-carousel .slick-dots {
+    bottom: 10px;
+    color: #adabab;
+  }
+  
+  .ant-carousel .slick-dots li {
+    margin: 0 4px;
+  }
+  
+  .ant-carousel .slick-dots li button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #adabab;
+    border: none;
+  }
+  
+  .ant-carousel .slick-dots li.slick-active button {
+    background-color: #9b9b9b;
+  }
+
+  .slick-dots {
+    bottom: -30px !important; /* Adjust to position arrow outside the left edge */
+  }
+
+  /* Hero.css */
+.carousel-container {
+  width: 350px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.carousel-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+.carousel-content {
+  width: 100%;
+  height: auto;
+
+}
+.wel
+{
+  color: blue;
+  margin-bottom: 2%;
+  font-size: 2.5vw;
+  width:100% ;
+
+  white-space: nowrap;        /* Prevents the text from wrapping to the next line */
+  overflow: hidden;
+}
+
+.para
+{
+  white-space: wrap;        /* Prevents the text from wrapping to the next line */
+  text-align: center;
+  font-size: 1.2vw;
+  color: black;
+  
+  /* position: static !important; */
+}
+
+@media (max-width: 950px) {
+  
+    .carousel-container {
+      width: 240px;
+      margin-left: 8%;
+    }
+  
+      .slick-prev {
+        left: -50px !important; /* Adjust to position arrow outside the left edge */
+      }
+      
+      .slick-next {
+        right: -80px !important; /* Adjust to position arrow outside the right edge */
+      }
+      .wel{
+        margin-left: -15%;
+      }
+}
+
