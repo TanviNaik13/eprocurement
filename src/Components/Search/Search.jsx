@@ -14,7 +14,7 @@ const Searchh = () => (
 
 
   </div>
-  <p><a href=""><u>Advanced search?</u></a></p>    
+  <p className='para'><a href=""><u>Advanced search?</u></a></p>    
   </>
 );
 export default Searchh;

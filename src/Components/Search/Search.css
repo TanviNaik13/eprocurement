@@ -6,7 +6,8 @@ margin-top: 2% ;
 }
 
 .bar{
-    width: 25%;
+    width: 40%;
+    
     background: linear-gradient(45deg, rgb(42, 205, 255), blue);
     padding: 3px;
     border-radius: 8px;
@@ -16,17 +17,29 @@ margin-top: 2% ;
     width: 25%;
     border-radius: 35px;
     border: 17px;
-    
+    font-size: 3vw;
 }
 
 .outline{
-    margin-top: 5% ;
     display: flex;
     justify-content: center;
+    margin-top: 5%;
 }
-p{
-    margin-left: 17%;
+.para{
+    margin-left: 30%;
     text-align: center;
     font-size:small;
     color: blue;
+}
+
+@media (max-width: 950px) {
+    .outline{
+        margin-top: 25% !important;
+    }
+}
+
+@media (max-width: 1090px) {
+    .outline{
+        margin-top: 10%;
+    }
 }

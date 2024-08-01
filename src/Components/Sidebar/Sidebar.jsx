@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { Button, Layout } from "antd";
+import { Button, Carousel, Layout, Typography } from "antd";
 import { Menu } from "antd";
-import Hero from "../Hero/Hero";
+import "../Hero/Hero.css";
+
+import cashew from "../../assets/OIG3.jpg";
+import beach from "../../assets/Goa, India.jpg";
+import church from "../../assets/white and blue.jpg";
+import sadolxem from "../../assets/Sadolxeml.jpg";
 
 import {
   FileSearchOutlined,
@@ -28,7 +33,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
 
-  const handleClick =(val)=> navigate(val);
+  const handleClick = (val) => navigate(val);
 
   const func1 = (info, Icons) => {
     return (
@@ -59,9 +64,16 @@ const Sidebar = () => {
     );
   };
 
+  const carouselItems = [
+    { src: sadolxem, alt: "Image 1" },
+    { src: beach, alt: "Image 2" },
+    { src: cashew, alt: "Image 3" },
+    { src: church, alt: "Image 4" },
+  ];
+
   return (
     <>
-      <Layout>
+      <Layout style={{position : "relative"}}>
         <Sider
           collapsed={collapsed}
           collapsible
@@ -102,9 +114,33 @@ const Sidebar = () => {
           </Menu>
         </Sider>
 
-        <Layout>
-          <Content className="herocomp">
-            <Hero />
+        <Layout></Layout>
+
+        <Layout className="layout">
+          <Content style={{ padding: "24px", minHeight: "280px" }}>
+            {/* Welcome Text */}
+
+              <div className="title-cont">
+                <Typography.Title level={2} >
+                  Welcome to eProcurement System
+                </Typography.Title>
+                <div className="title-text">
+                  The eProcurement System enables the Tenderers to download the
+                  Tender Schedule free of cost and then submit the bids online
+                  through this portal.
+                </div>
+              </div>
+            <Carousel className="carousel-container" arrows infinite={false}>
+              {carouselItems.map((item, index) => (
+                <div className="carousel-item" key={index}>
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="carousel-content"
+                  />
+                </div>
+              ))}
+            </Carousel>
           </Content>
         </Layout>
 
@@ -112,10 +148,22 @@ const Sidebar = () => {
           <Header className="head">
             <b>MENU</b>
           </Header>
-          <Menu.Item className="menu-item1" icon={<LoginOutlined />} onClick={()=>{handleClick('/login')}}>
+          <Menu.Item
+            className="menu-item1"
+            icon={<LoginOutlined />}
+            onClick={() => {
+              handleClick("/login");
+            }}
+          >
             LOGIN
           </Menu.Item>
-          <Menu.Item className="menu-item1" icon={<LoginOutlined />} onClick={()=>{handleClick('/register')}}>
+          <Menu.Item
+            className="menu-item1"
+            icon={<LoginOutlined />}
+            onClick={() => {
+              handleClick("/register");
+            }}
+          >
             REGISTER
           </Menu.Item>
           <hr className="line" />

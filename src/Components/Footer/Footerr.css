@@ -5,12 +5,12 @@
     font-size: 1.6vw;
     margin-top: 10%;
 }
-.footer2{
+.footer2,.footer2 a{
     background-color: black;
 }
 
 .fele{
-    margin: 2%;
+    margin: 2% ;
 }
 img{
     width: 15%;
@@ -21,7 +21,7 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     font-size: 1.3vw;
     color: white;
 }
