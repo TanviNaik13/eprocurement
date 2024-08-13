@@ -3,6 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const app = express();
+const tenderRoutes = require('./routes/tenderRoutes');
+const verifyJWT = require("./middleware/jwtAuth");
 require("dotenv").config();
 
 //MIDDLEWARE
@@ -15,6 +17,7 @@ app.get("/", (request, response) => {
 
 
 app.use("/users", userRoutes);
+app.use("/tenders",verifyJWT,tenderRoutes);
 try {
   mongoose.connect(process.env.DB_URL).then(() => {
     console.log("successfulyy connected");

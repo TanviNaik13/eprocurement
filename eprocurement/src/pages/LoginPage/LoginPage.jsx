@@ -66,7 +66,7 @@ const LoginForm = () => {
             url: "http://localhost:5050/users/googlesignin",
             data: userData,
           });
-          //console.log(res.data);
+          console.log(res.data);
           setToken(res.data.token);
           message.success("Login Successful", 5);
 

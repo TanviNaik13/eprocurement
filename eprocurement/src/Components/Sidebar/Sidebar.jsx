@@ -25,7 +25,7 @@ import {
 } from "@ant-design/icons";
 
 import "./Sidebar.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { isAuth } from "../../authentication";
 
 const { Header, Content, Sider } = Layout;
@@ -57,10 +57,10 @@ const Sidebar = () => {
     );
   };
 
-  const func2 = (info) => {
+  const func2 = (info,route) => {
     return (
       <>
-        <Menu.Item className="menu-item1">{info}</Menu.Item>
+        <Menu.Item  onClick={() => window.location.assign(route)} className="menu-item1">{info}</Menu.Item>
         <hr className="line" />
       </>
     );
@@ -183,7 +183,7 @@ const Sidebar = () => {
           )}
           
           <hr className="line" />
-          {func2("Tenders by location")}
+          {func2("Tenders by location","tenders/location")}
           {func2("Tenders by Organisation")}
           {func2("Tenders by Classification")}
           {func2("Tenders in Archive")}
