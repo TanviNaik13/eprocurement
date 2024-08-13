@@ -23,3 +23,33 @@ export const auth = getAuth();
 export const db = getFirestore(app);
 
 export default app;
+
+
+import { getDatabase, ref, runTransaction,onValue } from 'firebase/database';
+
+const gdb = getDatabase();
+
+export const incrementVisitorCount = async () => {
+  const visitorCountRef = ref(gdb, 'visitorCount');
+
+  try {
+    await runTransaction(visitorCountRef, (currentCount) => {
+      if (currentCount === null) {
+        return 1;
+      } else {
+        return currentCount + 1;
+      }
+    });
+  } catch (error) {
+    console.error("Error incrementing visitor count:", error);
+  }
+};
+
+export const getVisitorCount = (callback) => {
+    const visitorCountRef = ref(gdb, 'visitorCount');
+  
+    onValue(visitorCountRef, (snapshot) => {
+      const count = snapshot.val();
+      callback(count);
+    });
+  };

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import "./Navbar.css";
-import logo from "../../assets/LOGO2.png";
-import assembly from "../../assets/goa assembly.jpg";
-import govgoa from "../../assets/goalogo.png";
+const logo = "https://firebasestorage.googleapis.com/v0/b/eprocurement-32ba4.appspot.com/o/assets%2FLOGO2.png?alt=media&token=0ffa882a-a355-4bc8-87d7-fbb97dda33fc";
+const assembly = "https://firebasestorage.googleapis.com/v0/b/eprocurement-32ba4.appspot.com/o/assets%2Fgoa%20assembly.jpg?alt=media&token=e6b739b5-2baa-4795-abca-19a2c7fb7e6f";
+const govgoa = "https://firebasestorage.googleapis.com/v0/b/eprocurement-32ba4.appspot.com/o/assets%2Fgoalogo.png?alt=media&token=66ad775b-ae8d-4647-8880-13e931caf8d6";
 import home from "../../assets/home.svg";
 import contact from "../../assets/contact.svg";
 import map from "../../assets/map.svg";
@@ -88,16 +88,16 @@ const Navbar = () => {
 
         <div className="nav-center">
           <li>
-            <a href="">
+            <Link to="/">
               <img className="nav-icon" src={home} alt="" />
               HOME
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="">
+            <Link to="/contact_us">
               <img className="nav-icon" src={contact} alt="" />
               CONTACT US
-            </a>
+            </Link>
           </li>
           <li>
             <a href="">

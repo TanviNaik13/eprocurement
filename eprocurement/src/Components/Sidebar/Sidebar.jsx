@@ -3,10 +3,10 @@ import { Button, Carousel, Layout, message, Typography } from "antd";
 import { Menu } from "antd";
 import "../Hero/Hero.css";
 
-import cashew from "../../assets/OIG3.jpg";
-import beach from "../../assets/Goa, India.jpg";
-import church from "../../assets/white and blue.jpg";
-import sadolxem from "../../assets/Sadolxeml.jpg";
+const cashew = "https://firebasestorage.googleapis.com/v0/b/eprocurement-32ba4.appspot.com/o/assets%2FOIG3.jpg?alt=media&token=9c0172d4-84f6-4791-958e-12a93fb45664";
+const beach = "https://firebasestorage.googleapis.com/v0/b/eprocurement-32ba4.appspot.com/o/assets%2FGoa%2C%20India.jpg?alt=media&token=ff5ac51e-c985-4c57-95e2-453ae512fccc";
+const church = "https://firebasestorage.googleapis.com/v0/b/eprocurement-32ba4.appspot.com/o/assets%2Fwhite%20and%20blue.jpg?alt=media&token=72f2fcab-84ef-41ca-8246-b1f2fc99e8e9";
+const sadolxem = "https://firebasestorage.googleapis.com/v0/b/eprocurement-32ba4.appspot.com/o/assets%2FSadolxeml.jpg?alt=media&token=6844fbdb-9bd6-423a-81d5-1ed724bb79ca";
 
 import {
   FileSearchOutlined,
