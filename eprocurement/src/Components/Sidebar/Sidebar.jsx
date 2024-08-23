@@ -31,22 +31,34 @@ import { isAuth } from "../../authentication";
 const { Header, Content, Sider } = Layout;
 
 const Sidebar = () => {
-
-
+  
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-
+  
   const handleClick = (val) => navigate(val);
-
+  
   const [AUTH,SETAUTH] = useState(false);
+  const [isNicUser, setIsNicUser] = useState(false);
+  const [role, setRole] = useState(null);
 
-  useEffect(()=>{
-    const f = async ()=>{
-      SETAUTH(await isAuth());
-    }
+  useEffect(() => {
+    const f = async () => {
+      const authResponse = await isAuth();
+      //console.log("Auth Response:", authResponse.isAuthenticated); // Log the entire response to ensure it's as expected
+      SETAUTH(authResponse.isAuthenticated);
+      setIsNicUser(authResponse.isNicUser); 
+      if(authResponse.userRole)
+      {
+        setRole(localStorage.getItem("role"));
+      }
+    };
+  
     f();
-  },[])
+  }, []);
+  
+  
 
+  
   const func1 = (info, Icons) => {
     return (
       <>
@@ -98,7 +110,6 @@ const Sidebar = () => {
               onClick={() => setCollapsed(!collapsed)}
               icon={collapsed ? <MenuOutlined /> : <CloseCircleOutlined />}
             ></Button>
-
             {func1("Search", FileSearchOutlined)}
             {func1("Active Tenders", FormOutlined)}
             {func1("Tenders by closing date", CalendarOutlined)}
@@ -165,7 +176,10 @@ const Sidebar = () => {
               onClick={() => {
                 SETAUTH(false);
                 localStorage.removeItem("token");
-                message.info("Sign out Successfull",4)
+                localStorage.removeItem("isNicUser");
+                localStorage.removeItem("role");
+                message.info("Sign out Successfull",4);
+                window.location.href = "/";
               }}
             >
               SIGNOUT
@@ -183,17 +197,19 @@ const Sidebar = () => {
           )}
           
           <hr className="line" />
+          
+          {isNicUser && role==='creator' && func2("Create Tender", "tenders/create")}
+          {isNicUser && role==='publisher' && func2("Approve Tender", "tenders/approve")}
           {func2("Tenders by location","tenders/location")}
-          {func2("Tenders by Organisation")}
-          {func2("Tenders by Classification")}
-          {func2("Tenders in Archive")}
-          {func2("Tenders Status")}
-          {func2("Cancelled/Retendered")}
-          {func2("Downloads")}
-          {func2("Announcements")}
-          {func2("Debartment List")}
-          {func2("Awards")}
-          {func2("Site Compatability")}
+          {func2("Tenders by Organisation","tenders/organisation")}
+          {func2("Tenders by Classification","tenders/classification")}
+          {func2("Tenders in Archive","tenders/archive")}
+          {func2("Tenders Status","/tenders/status")}
+          {func2("Cancelled/Retendered","/tenders/current")}
+          {func2("Downloads","/tenders/downloads")}
+          {func2("Announcements","/tenders/announcements")}
+          {func2("Awards","/tenders/awards")}
+          {func2("Site Compatability","/tenders/site")}
         </Menu>
       </Layout>
     </>

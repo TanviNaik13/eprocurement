@@ -12,11 +12,11 @@
   flex-direction: column; /* Arrange cards in a column */
   justify-content: center; /* Horizontally center */
   align-items: center;
-  
-  
+  margin-top: 10%;
 }
-h2{
+.menu-title{
     text-align: center;
     background-color: black;
     color: white;
+    height: 50px;
 }

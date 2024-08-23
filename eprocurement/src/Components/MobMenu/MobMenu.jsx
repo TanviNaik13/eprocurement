@@ -36,9 +36,12 @@ const MobMenu = () => {
     return (
       <>
         <Card hoverable className="card" onClick={() => {
+          setLoading(true);
           SETAUTH(false);
           localStorage.removeItem("token");
+          localStorage.removeItem("isNicUser");
           message.info("Sign out Successfull", 4);
+          setLoading(false);
         }}>
           <Meta title='SIGNOUT' />
         </Card>
@@ -46,13 +49,15 @@ const MobMenu = () => {
     );
   };
   return (
-    <>
+    <div className="no-scroll">
     <Loading loading={loading}>
 
-      <h2>Menu</h2>
+      <div className="menu-title">
+        <h2>Menu</h2></div>
       <div className="maincard">
         {AUTH && !loading ?   handleSignOut(): func2("LOGIN", "/login")}
-        {func2("Tenders by location", "/")}
+
+        {func2("Tenders by location", "/tenders/admin")}
         {func2("Tenders by Organisation", "/")}
         {func2("Tenders by Classification", "/")}
         {func2("Tenders in Archive", "/")}
@@ -65,7 +70,7 @@ const MobMenu = () => {
         {func2("Site Compatability", "/")}
       </div>
     </Loading>
-    </>
+    </div>
   );
 };
 

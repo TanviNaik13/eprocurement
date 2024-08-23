@@ -1,0 +1,68 @@
+.downloads-table-container {
+    width: 90%; /* Slightly increased width for better fit */
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    
+}
+.bcg{
+    background-image: url("../../../assets/loginbckg.png");
+    background-size: cover;
+    background-position: center;
+    display: flex; /* Make the container a flexbox */
+    justify-content: center; /* Center the content horizontally */
+    align-items: flex-start; /* Align items at the top */
+    padding-top: 5%; /* Add some padding at the top */
+    padding-bottom: 10%;
+}
+.fulltable {
+    box-shadow: 0px 8px 32px 0 rgba(0, 0, 0, 0.44);
+    
+    padding: 2%;
+    border-radius: 5%;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 70%;
+    margin: 0 auto;
+    overflow-x: auto; /* Enable horizontal scroll if needed */
+    margin-top: 5%;
+    
+}
+
+.downloads-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 16px; /* Slightly reduce font size for better fit */
+    text-align: left;
+    table-layout: fixed; /* Ensure table columns are evenly distributed */
+}
+
+.downloads-table th, .downloads-table td {
+    padding: 12px 15px;
+    white-space: nowrap; /* Prevent text wrapping in cells */
+    overflow: hidden; /* Hide overflow text if necessary */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+}
+
+.downloads-table thead tr {
+    background-color: #bbdfff;
+    color: #000000;
+    text-align: left;
+}
+
+.downloads-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.downloads-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.downloads-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.headding{
+    text-align: center;
+    margin-top: -3%;
+}
